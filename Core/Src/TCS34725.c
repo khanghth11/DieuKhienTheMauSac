@@ -83,4 +83,3 @@ void I2C_RGBCTime(uint16_t value){
 	if(value>101 && value<154) 	I2C_Write8BIT(ATIME_REG, 0xd5);
 	if(value>154 && value<700) 	I2C_Write8BIT(ATIME_REG, 0x00);
 }
-

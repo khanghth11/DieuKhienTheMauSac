@@ -237,7 +237,7 @@ void setRelayState(uint8_t relayNum, bool state) {
     }
 
     if (changed) {
-        snprintf(logMsg, sizeof(logMsg), "Relay %d -> %s", relayNum, state ? "ON" : "OFF");
+        snprintf(logMsg, sizeof(logMsg), "Relay %d -> %s", relayNum, state ? "OFF" : "ON");
         logToLCD(logMsg);
         g_forceLcdUpdate = true; // Force redraw if relay changes
     }
@@ -535,7 +535,11 @@ void capNhatTrangThaiVaCheDo(void) {
                          switch (g_lastDetectedColor) {
                              case COLOR_GREEN: toggleRelay(1); break;
                              case COLOR_RED:   toggleRelay(2); break;
-                             case COLOR_YELLOW: toggleRelay(1); toggleRelay(2); break;
+                             case COLOR_YELLOW:
+                                 bool newState = !g_relay1State;
+                                 setRelayState(1, newState);
+                                 setRelayState(2, newState);
+                                 break;
                              default: logToLCD("Color OK, no action"); break; // Other valid colors but no action defined
                          }
                          g_currentState = STATE_ACTION_DONE;
@@ -712,7 +716,7 @@ void capNhatManHinhLCD(void) {
 
     // 3. Draw Relay Status Line
     if (relaysChanged) {
-        snprintf(lineBuffer, sizeof(lineBuffer), "TB1:%s  TB2:%s", g_relay1State ? "ON " : "OFF", g_relay2State ? "ON " : "OFF");
+        snprintf(lineBuffer, sizeof(lineBuffer), "TB1:%s  TB2:%s", g_relay1State ? "OFF " : "ON", g_relay2State ? "OFF " : "ON");
         ST7789_Fill(0, LCD_RELAY_LINE_Y, ST7789_WIDTH - 1, LCD_RELAY_LINE_Y + LCD_LINE_HEIGHT, BLACK); // Clear line
         ST7789_WriteString(5, LCD_RELAY_LINE_Y, lineBuffer, Font_11x18, YELLOW, BLACK);
         lastDrawnRly1 = g_relay1State;

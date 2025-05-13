@@ -1,0 +1,3 @@
+../Core/Src/relay_controller.c:4:6:initRelays	8	static
+../Core/Src/relay_controller.c:10:6:setRelayState	56	static
+../Core/Src/relay_controller.c:36:6:toggleRelay	16	static

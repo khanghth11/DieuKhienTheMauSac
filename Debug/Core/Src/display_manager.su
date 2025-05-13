@@ -1,0 +1,6 @@
+../Core/Src/display_manager.c:10:6:initDisplay	8	static
+../Core/Src/display_manager.c:15:6:logToLCD	16	static
+../Core/Src/display_manager.c:21:13:colorToString	16	static
+../Core/Src/display_manager.c:30:13:modeToString	16	static
+../Core/Src/display_manager.c:34:13:stateToString	16	static
+../Core/Src/display_manager.c:48:6:updateDisplay	80	static

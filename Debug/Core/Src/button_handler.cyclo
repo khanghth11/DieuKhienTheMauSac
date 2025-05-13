@@ -1,0 +1,3 @@
+../Core/Src/button_handler.c:8:6:initButtons	1
+../Core/Src/button_handler.c:26:6:processButton	13
+../Core/Src/button_handler.c:60:6:processAllButtons	1

@@ -1,0 +1,6 @@
+../Core/Src/TCS34725.c:15:6:I2C_Write8BIT	1
+../Core/Src/TCS34725.c:25:9:I2C_Read8BIT	1
+../Core/Src/TCS34725.c:37:10:I2C_Read16BIT	1
+../Core/Src/TCS34725.c:53:10:I2C_GetColor	3
+../Core/Src/TCS34725.c:74:6:I2C_SetGain	1
+../Core/Src/TCS34725.c:80:6:I2C_RGBCTime	8
